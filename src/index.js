@@ -7,9 +7,8 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 import rootReducer from "./modules";
-import ReduxThunk from "redux-thunk";
-
 import { createLogger } from "redux-logger";
+import ReduxThunk from "redux-thunk";
 
 const logger = createLogger();
 const store = createStore(rootReducer, applyMiddleware(logger, ReduxThunk)); //크리에이트 스토를 이용해 root리듀서를 스토어에 넣는다
