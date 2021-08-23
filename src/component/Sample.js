@@ -1,23 +1,22 @@
 import React from "react";
 
-const Sample = ({ loadingPost, loadingUsers, post, users }) => {
-  const { body, title } = post;
+const Sample = ({ post, users, loadingPost, loadingUsers }) => {
   return (
     <div>
       <section>
         <h1>포스트</h1>
-        {loadingPost && "loading..."}
+        {loadingPost && "로딩중..."}
         {!loadingPost && post && (
           <div>
-            <h3>{title}</h3>
-            <h3>{body}</h3>
+            <h3>{post.title}</h3>
+            <h3>{post.body}</h3>
           </div>
         )}
       </section>
       <hr />
       <section>
         <h1>사용자 목록</h1>
-        {loadingUsers && "loading..."}
+        {loadingUsers && "로딩중..."}
         {!loadingUsers && users && (
           <ul>
             {users.map((user) => (

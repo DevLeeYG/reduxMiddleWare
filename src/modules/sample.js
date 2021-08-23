@@ -30,7 +30,7 @@ export const getPost = (id) => async (dispatch) => {
   }
 };
 
-export const getUusers = () => async (dispatch) => {
+export const getUsers = () => async (dispatch) => {
   //액션 생성함수
   dispatch({ type: GET_USERS }); //요청시작한것을 알림
 
@@ -60,52 +60,55 @@ const initialState = {
   users: null,
 };
 
-const sample = handleActions({
-  //리듀서
-  [GET_POST]: (state) => ({
-    ...state,
-    loading: {
-      ...state.loading,
-      GET_POST: true, //요청시작
-    },
-  }),
-  [GET_POST_SUCCESS]: (state, action) => ({
-    ...state,
-    loading: {
-      ...state.loading,
-      GET_POST: false,
-    },
-    post: action.payload,
-  }),
-  [GET_POST_FAILURE]: (state, action) => ({
-    ...state,
-    loading: {
-      ...state.loading,
-      GET_POST: false,
-    },
-  }),
-  [GET_USERS]: (state) => ({
-    ...state,
-    loading: {
-      ...state.loading,
-      GET_USERS: true,
-    },
-  }),
-  [GET_USERS_SUCCESS]: (state, action) => ({
-    ...state,
-    loading: {
-      ...state.loading,
-      GET_USERS: false,
-    },
-    users: action.payload,
-  }),
-  [GET_USERS_FAILURE]: (state, action) => ({
-    ...state,
-    loading: {
-      ...state.loading,
-      GET_USERS: false,
-    },
-  }),
-});
+const sample = handleActions(
+  {
+    //리듀서
+    [GET_POST]: (state) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_POST: true, //요청시작
+      },
+    }),
+    [GET_POST_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_POST: false,
+      },
+      post: action.payload,
+    }),
+    [GET_POST_FAILURE]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_POST: false,
+      },
+    }),
+    [GET_USERS]: (state) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: true,
+      },
+    }),
+    [GET_USERS_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: false,
+      },
+      users: action.payload,
+    }),
+    [GET_USERS_FAILURE]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: false,
+      },
+    }),
+  },
+  initialState
+);
 
 export default sample;
