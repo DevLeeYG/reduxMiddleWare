@@ -1,11 +1,13 @@
 import counter from "./counter";
 import { combineReducers } from "redux";
 import sample from "./sample";
+import loading from "./loading";
 
 const rootReducer = combineReducers({
   //루트리듀서만들기
   counter,
   sample,
+  loading,
 });
 
 export default rootReducer;
